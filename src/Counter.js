@@ -1,37 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class Counter extends Component {
-	state = {
-		count: 0
-	};
+const counter = props => (
 
-  handleIncrement = () => {
-  	this.setState( (prevState) => {
-  		console.log('prevState', prevState);
-  		return {count: prevState.count + 1}
-	  });
-  };
-	handleDecrement = () => {
-		this.setState( (prevState) => {
-			console.log('prevState', prevState);
-			return {count: prevState.count - 1}
-		});
-	};
+	<section className="Counter">
+		<h1>Count: {props.count}</h1>
+		<button onClick={props.onIncrement} className="full-width">Increment</button>
+		<button onClick={props.onDecrement} className="full-width">Decrement</button>
+		<button onClick={props.onReset} className="full-width">Reset</button>
+	</section>
 
-	handleReset = () => {
-		this.setState( {count: 0});
-	};
+);
 
-
-  render() {
-  	const {count} = this.state;
-    return (
-      <section className="Counter">
-        <h1>Count: {count}</h1>
-        <button onClick={this.handleIncrement} className="full-width">Increment</button>
-        <button onClick={this.handleDecrement} className="full-width">Decrement</button>
-        <button onClick={this.handleReset} className="full-width">Reset</button>
-      </section>
-    );
-  }
-}
+export default counter;
